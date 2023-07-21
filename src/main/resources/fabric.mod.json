@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "id": "cobblemon_unimplementeditems",
-  "version": "0.0.0",
-  "name": "Cobblemong Unimplemented Items",
+  "version": "0.1.0",
+  "name": "Cobblemon Unimplemented Items",
   "description": "Adds items that don't exist in Cobblemon yet",
   "authors": [
     "TimInc aka Timothy Metcalfe"
