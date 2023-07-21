@@ -1,0 +1,6 @@
+{
+  "unimplemented_items.errors.onlyOneCommonAbility": "That Pokemon only has one common ability.",
+  "unimplemented_items.errors.notYourPokemon": "That Pokemon doesn't belong to you.",
+  "unimplemented_items.errors.notPokemon": "That's not a Pokemon, you can't fool me!",
+  "item.unimplemented_items.ability_capsule": "Ability Capsule"
+}
