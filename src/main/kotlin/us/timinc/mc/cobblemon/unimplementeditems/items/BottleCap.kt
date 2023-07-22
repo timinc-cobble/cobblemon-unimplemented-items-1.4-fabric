@@ -1,7 +1,9 @@
 package us.timinc.mc.cobblemon.unimplementeditems.items
 
+import com.cobblemon.mod.common.api.pokemon.stats.Stat
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.item.CobblemonItemGroups
+import com.cobblemon.mod.common.pokemon.IVs
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.network.chat.Component
 import net.minecraft.world.InteractionHand
@@ -12,9 +14,10 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import us.timinc.mc.cobblemon.unimplementeditems.ErrorMessages
 
-class AbilityCapsule() : Item(FabricItemSettings()
+class BottleCap(private val stat: Stat) : Item(FabricItemSettings()
     .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
     .maxCount(16)) {
+
     override fun interactLivingEntity(
         itemStack: ItemStack,
         player: Player,
@@ -30,26 +33,18 @@ class AbilityCapsule() : Item(FabricItemSettings()
             return InteractionResult.FAIL
         }
 
-        if (!target.pokemon.isPlayerOwned() || target.ownerUUID !== player.uuid) {
+        val tPokemon = target.pokemon
+        if (!tPokemon.isPlayerOwned() || target.ownerUUID !== player.uuid) {
             player.sendSystemMessage(Component.translatable(ErrorMessages.notYourPokemon))
             return InteractionResult.FAIL
         }
 
-        val form = target.form
-        val potentialAbilityPriorityPool =
-            form.abilities.mapping[target.pokemon.ability.priority]!!
-        if (potentialAbilityPriorityPool.size == 1) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.onlyOneCommonAbility))
+        if (tPokemon.ivs[stat] == IVs.MAX_VALUE) {
+            player.sendSystemMessage(Component.translatable(ErrorMessages.alreadyPerfectIv, stat.displayName))
             return InteractionResult.FAIL
         }
 
-        val potentialAbility = potentialAbilityPriorityPool[1 - target.pokemon.ability.index]
-
-        val newAbilityBuilder = potentialAbility.template.builder
-        val newAbility = newAbilityBuilder.invoke(potentialAbility.template, false)
-        newAbility.index = 1 - target.pokemon.ability.index
-        newAbility.priority = target.pokemon.ability.priority
-        target.pokemon.ability = newAbility
+        tPokemon.ivs[stat] = IVs.MAX_VALUE
 
         itemStack.count--
         return InteractionResult.SUCCESS
