@@ -19,4 +19,7 @@ object UnimplementedItemsItems {
             .maxCount(16)
     )
     val BOTTLE_CAP_GOLD = BottleCap(null)
+    val POTION = Potion(60)
+    val POTION_HYPER = Potion(150)
+    val POTION_MAX = Potion(null)
 }

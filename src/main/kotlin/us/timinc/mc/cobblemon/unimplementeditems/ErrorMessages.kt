@@ -10,4 +10,5 @@ object ErrorMessages {
     val onlyOneCommonAbility = buildErrorMessage("onlyOneCommonAbility")
     val alreadyPerfectIv = buildErrorMessage("alreadyPerfectIv")
     val alreadyPerfectIvs = buildErrorMessage("alreadyPerfectIvs")
+    val alreadyPerfectHp = buildErrorMessage("alreadyPerfectHp")
 }

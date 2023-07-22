@@ -10,5 +10,8 @@
   "item.unimplemented_items.bottle_cap_sa": "Bottle Cap (Special Attack)",
   "item.unimplemented_items.bottle_cap_sd": "Bottle Cap (Special Defense)",
   "item.unimplemented_items.bottle_cap_spd": "Bottle Cap (Speed)",
-  "item.unimplemented_items.bottle_cap_gold": "Gold Bottle Cap"
+  "item.unimplemented_items.bottle_cap_gold": "Gold Bottle Cap",
+  "item.unimplemented_items.potion": "Potion",
+  "item.unimplemented_items.potion_hyper": "Hyper Potion",
+  "item.unimplemented_items.potion_max": "Max Potion"
 }
