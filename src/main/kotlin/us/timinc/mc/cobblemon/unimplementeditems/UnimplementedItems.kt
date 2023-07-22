@@ -20,7 +20,7 @@ object UnimplementedItems : ModInitializer {
     const val MOD_ID = "unimplemented_items"
 
     override fun onInitialize() {
-        LootTableEvents.MODIFY.register(Modify { resourceManager: ResourceManager, lootManager: LootTables, id: ResourceLocation, tableBuilder: LootTable.Builder, source: LootTableSource ->
+        LootTableEvents.MODIFY.register(Modify { _: ResourceManager, _: LootTables, id: ResourceLocation, tableBuilder: LootTable.Builder, source: LootTableSource ->
             if (source.isBuiltin && id == BuiltInLootTables.FISHING_TREASURE) {
                 val poolBuilder = LootPool.Builder()
                     .with(LootItem.lootTableItem { UnimplementedItemsItems.BOTTLE_CAP }.setWeight(1).build())
@@ -38,6 +38,7 @@ object UnimplementedItems : ModInitializer {
         Registry.register(Registry.ITEM, myResourceLocation("bottle_cap_spd"), UnimplementedItemsItems.BOTTLE_CAP_SPD)
         Registry.register(Registry.ITEM, myResourceLocation("bottle_cap_hp"), UnimplementedItemsItems.BOTTLE_CAP_HP)
         Registry.register(Registry.ITEM, myResourceLocation("bottle_cap"), UnimplementedItemsItems.BOTTLE_CAP)
+        Registry.register(Registry.ITEM, myResourceLocation("bottle_cap_gold"), UnimplementedItemsItems.BOTTLE_CAP_GOLD)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")

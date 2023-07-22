@@ -15,7 +15,8 @@ object UnimplementedItemsItems {
     val BOTTLE_CAP_HP = BottleCap(Stats.HP)
     val BOTTLE_CAP = Item(
         FabricItemSettings()
-        .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
-        .maxCount(16)
+            .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
+            .maxCount(16)
     )
+    val BOTTLE_CAP_GOLD = BottleCap(null)
 }

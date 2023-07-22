@@ -9,4 +9,5 @@ object ErrorMessages {
     val notYourPokemon = buildErrorMessage("notYourPokemon")
     val onlyOneCommonAbility = buildErrorMessage("onlyOneCommonAbility")
     val alreadyPerfectIv = buildErrorMessage("alreadyPerfectIv")
+    val alreadyPerfectIvs = buildErrorMessage("alreadyPerfectIvs")
 }
