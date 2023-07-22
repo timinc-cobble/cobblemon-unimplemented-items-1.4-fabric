@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#P#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:sweet_berries"
+    },
+    "P": {
+      "item": "minecraft:potion"
+    }
+  },
+  "result": {
+    "item": "unimplemented_items:potion_hyper",
+    "count": 1
+  }
+}
