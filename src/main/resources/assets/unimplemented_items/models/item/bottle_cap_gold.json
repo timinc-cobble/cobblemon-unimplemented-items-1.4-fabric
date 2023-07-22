@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "unimplemented_items:item/bottle_cap_gold"
+  }
+}

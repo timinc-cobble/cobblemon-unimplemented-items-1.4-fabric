@@ -22,11 +22,17 @@ object UnimplementedItems : ModInitializer {
     override fun onInitialize() {
         LootTableEvents.MODIFY.register(Modify { _: ResourceManager, _: LootTables, id: ResourceLocation, tableBuilder: LootTable.Builder, source: LootTableSource ->
             if (source.isBuiltin && id == BuiltInLootTables.FISHING_TREASURE) {
-                val poolBuilder = LootPool.Builder()
+                val bottleCapPool = LootPool.Builder()
                     .with(LootItem.lootTableItem { UnimplementedItemsItems.BOTTLE_CAP }.setWeight(1).build())
                     .with(LootItem.lootTableItem { Items.AIR }.setWeight(9).build())
 
-                tableBuilder.withPool(poolBuilder)
+                tableBuilder.withPool(bottleCapPool)
+
+                val goldBottleCapPool = LootPool.Builder()
+                    .with(LootItem.lootTableItem { UnimplementedItemsItems.BOTTLE_CAP_GOLD }.setWeight(1).build())
+                    .with(LootItem.lootTableItem { Items.AIR }.setWeight(99).build())
+
+                tableBuilder.withPool(goldBottleCapPool)
             }
         })
 
