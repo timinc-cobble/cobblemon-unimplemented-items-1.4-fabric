@@ -8,8 +8,6 @@ import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.server.packs.resources.ResourceManager
 import net.minecraft.world.item.Items
-import net.minecraft.world.level.ItemLike
-import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.storage.loot.BuiltInLootTables
 import net.minecraft.world.level.storage.loot.LootPool
 import net.minecraft.world.level.storage.loot.LootTable
@@ -24,7 +22,7 @@ object UnimplementedItems : ModInitializer {
     override fun onInitialize() {
         LootTableEvents.MODIFY.register(Modify { resourceManager: ResourceManager, lootManager: LootTables, id: ResourceLocation, tableBuilder: LootTable.Builder, source: LootTableSource ->
             if (source.isBuiltin && id == BuiltInLootTables.FISHING_TREASURE) {
-                var poolBuilder = LootPool.Builder()
+                val poolBuilder = LootPool.Builder()
                     .with(LootItem.lootTableItem { UnimplementedItemsItems.BOTTLE_CAP }.setWeight(1).build())
                     .with(LootItem.lootTableItem { Items.AIR }.setWeight(9).build())
 
