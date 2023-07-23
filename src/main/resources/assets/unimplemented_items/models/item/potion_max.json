@@ -1,8 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "item/potion_overlay",
-    "layer1": "item/potion",
-    "layer2": "unimplemented_items:item/potion_cap"
+    "layer0": "unimplemented_items:item/potion_max"
   }
 }

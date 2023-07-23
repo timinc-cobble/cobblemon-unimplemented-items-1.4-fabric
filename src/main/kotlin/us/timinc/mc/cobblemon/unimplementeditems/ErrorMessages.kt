@@ -11,4 +11,5 @@ object ErrorMessages {
     val alreadyPerfectIv = buildErrorMessage("alreadyPerfectIv")
     val alreadyPerfectIvs = buildErrorMessage("alreadyPerfectIvs")
     val alreadyPerfectHp = buildErrorMessage("alreadyPerfectHp")
+    val alreadyPerfectPps = buildErrorMessage("alreadyPerfectPps")
 }

@@ -22,4 +22,6 @@ object UnimplementedItemsItems {
     val POTION = Potion(60)
     val POTION_HYPER = Potion(150)
     val POTION_MAX = Potion(null)
+    val ELIXIR = Elixir(null)
+    val ETHER = Elixir(10)
 }

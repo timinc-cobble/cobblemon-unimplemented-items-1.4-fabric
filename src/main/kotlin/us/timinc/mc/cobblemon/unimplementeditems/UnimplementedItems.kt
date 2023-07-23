@@ -1,6 +1,5 @@
 package us.timinc.mc.cobblemon.unimplementeditems
 
-import dev.architectury.registry.client.rendering.ColorHandlerRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents.Modify
@@ -48,19 +47,8 @@ object UnimplementedItems : ModInitializer {
         Registry.register(Registry.ITEM, myResourceLocation("potion"), UnimplementedItemsItems.POTION)
         Registry.register(Registry.ITEM, myResourceLocation("potion_hyper"), UnimplementedItemsItems.POTION_HYPER)
         Registry.register(Registry.ITEM, myResourceLocation("potion_max"), UnimplementedItemsItems.POTION_MAX)
-
-        ColorHandlerRegistry.registerItemColors(
-            { _, i -> if (i == 0) 0xE1BEE7 else 0xFFFFFF },
-            UnimplementedItemsItems.POTION
-        )
-        ColorHandlerRegistry.registerItemColors(
-            { _, i -> if (i == 0) 0xF8BBD0 else 0xFFFFFF },
-            UnimplementedItemsItems.POTION_HYPER
-        )
-        ColorHandlerRegistry.registerItemColors(
-            { _, i -> if (i == 0) 0xB3E5FC else 0xFFFFFF },
-            UnimplementedItemsItems.POTION_MAX
-        )
+        Registry.register(Registry.ITEM, myResourceLocation("ether"), UnimplementedItemsItems.ETHER)
+        Registry.register(Registry.ITEM, myResourceLocation("elixir"), UnimplementedItemsItems.ELIXIR)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
