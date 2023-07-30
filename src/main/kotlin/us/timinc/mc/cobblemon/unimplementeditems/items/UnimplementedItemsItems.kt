@@ -24,4 +24,5 @@ object UnimplementedItemsItems {
     val POTION_MAX = Potion(null)
     val ELIXIR = Elixir(null)
     val ETHER = Elixir(10)
+    val ABILITY_PATCH = AbilityPatch()
 }
