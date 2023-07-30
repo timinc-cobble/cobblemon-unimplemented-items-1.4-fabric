@@ -11,9 +11,11 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import us.timinc.mc.cobblemon.unimplementeditems.ErrorMessages
 
-class AbilityCapsule : PokemonItem(FabricItemSettings()
-    .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
-    .maxCount(16)) {
+class AbilityPatch : PokemonItem(
+    FabricItemSettings()
+        .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
+        .maxCount(16)
+) {
     override fun processInteraction(
         itemStack: ItemStack,
         player: Player,
@@ -25,20 +27,18 @@ class AbilityCapsule : PokemonItem(FabricItemSettings()
             return InteractionResult.FAIL
         }
 
-        val form = target.form
-        val potentialAbilityPriorityPool =
-            form.abilities.mapping[Priority.LOWEST]!!
-        if (potentialAbilityPriorityPool.size == 1) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.onlyOneCommonAbility))
+        val tForm = pokemon.form
+        val potentialAbilityMapping = tForm.abilities.mapping[Priority.LOW]
+        if (potentialAbilityMapping == null) {
+            player.sendSystemMessage(Component.translatable(ErrorMessages.noHiddenAbility))
             return InteractionResult.FAIL
         }
 
-        val potentialAbility = potentialAbilityPriorityPool[1 - pokemon.ability.index]
-
+        val potentialAbility = potentialAbilityMapping[0]
         val newAbilityBuilder = potentialAbility.template.builder
         val newAbility = newAbilityBuilder.invoke(potentialAbility.template, false)
-        newAbility.index = 1 - pokemon.ability.index
-        newAbility.priority = pokemon.ability.priority
+        newAbility.index = 0
+        newAbility.priority = Priority.LOW
         pokemon.ability = newAbility
 
         itemStack.count--

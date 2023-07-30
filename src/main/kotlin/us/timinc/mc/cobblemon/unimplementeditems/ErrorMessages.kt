@@ -12,4 +12,6 @@ object ErrorMessages {
     val alreadyPerfectIvs = buildErrorMessage("alreadyPerfectIvs")
     val alreadyPerfectHp = buildErrorMessage("alreadyPerfectHp")
     val alreadyPerfectPps = buildErrorMessage("alreadyPerfectPps")
+    val noHiddenAbility = buildErrorMessage("noHiddenAbility")
+    val alreadyHasHiddenAbility = buildErrorMessage("alreadyHasHiddenAbility")
 }
