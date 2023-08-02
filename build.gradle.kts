@@ -2,7 +2,7 @@ plugins {
     id("java")
     id("dev.architectury.loom") version("0.12.0-SNAPSHOT")
     id("architectury-plugin") version("3.4-SNAPSHOT")
-    kotlin("jvm") version ("1.7.10")
+    kotlin("jvm") version ("1.8.10")
 }
 
 group = "us.timinc.mc.cobblemon.unimplementeditems"
@@ -38,7 +38,8 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.75.1+1.19.2")
     modImplementation(fabricApi.module("fabric-command-api-v2", "0.75.1+1.19.2"))
     modImplementation("dev.architectury", "architectury-fabric", "6.5.69")
-    modImplementation("com.cobblemon:fabric:1.3.1+1.19.2-SNAPSHOT")
+    modCompileOnly("com.cobblemon:mod:1.3.3+1.19.2-SNAPSHOT")
+    modRuntimeOnly("com.cobblemon:fabric:1.3.3+1.19.2-SNAPSHOT")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
