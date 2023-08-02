@@ -19,10 +19,10 @@ class DryRoot : PokemonItem(
         target: PokemonEntity,
         pokemon: Pokemon
     ): InteractionResult {
-        var changedOne = false;
+        var changedOne = false
         pokemon.evs.forEach{entry ->
             if (entry.value > .0) {
-                changedOne = true;
+                changedOne = true
                 pokemon.evs[entry.key] = 0
             }
         }
