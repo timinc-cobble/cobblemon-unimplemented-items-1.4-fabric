@@ -8,12 +8,14 @@ import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.server.packs.resources.ResourceManager
 import net.minecraft.world.item.Items
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.storage.loot.BuiltInLootTables
 import net.minecraft.world.level.storage.loot.LootPool
 import net.minecraft.world.level.storage.loot.LootTable
 import net.minecraft.world.level.storage.loot.LootTables
 import net.minecraft.world.level.storage.loot.entries.LootItem
 import us.timinc.mc.cobblemon.unimplementeditems.items.UnimplementedItemsItems
+
 
 object UnimplementedItems : ModInitializer {
     const val MOD_ID = "unimplemented_items"
@@ -28,6 +30,13 @@ object UnimplementedItems : ModInitializer {
                     .with(LootItem.lootTableItem { Items.AIR }.setWeight(88).build())
 
                 tableBuilder.withPool(unimplementedItemsPool)
+            }
+
+            if (source.isBuiltin && id == Blocks.GRASS.lootTable) {
+                val dryRootPool = LootPool.lootPool()
+                    .with(LootItem.lootTableItem{UnimplementedItemsItems.DRY_ROOT}.setWeight(1).build())
+                    .with(LootItem.lootTableItem { Items.AIR }.setWeight(9).build())
+                tableBuilder.withPool(dryRootPool)
             }
         })
 
@@ -46,6 +55,7 @@ object UnimplementedItems : ModInitializer {
         Registry.register(Registry.ITEM, myResourceLocation("ether"), UnimplementedItemsItems.ETHER)
         Registry.register(Registry.ITEM, myResourceLocation("elixir"), UnimplementedItemsItems.ELIXIR)
         Registry.register(Registry.ITEM, myResourceLocation("ability_patch"), UnimplementedItemsItems.ABILITY_PATCH)
+        Registry.register(Registry.ITEM, myResourceLocation("dry_root"), UnimplementedItemsItems.DRY_ROOT)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")

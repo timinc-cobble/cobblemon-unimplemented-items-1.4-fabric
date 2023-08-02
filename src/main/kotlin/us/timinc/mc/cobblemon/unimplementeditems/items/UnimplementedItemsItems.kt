@@ -25,4 +25,5 @@ object UnimplementedItemsItems {
     val ELIXIR = Elixir(null)
     val ETHER = Elixir(10)
     val ABILITY_PATCH = AbilityPatch()
+    val DRY_ROOT = DryRoot()
 }
