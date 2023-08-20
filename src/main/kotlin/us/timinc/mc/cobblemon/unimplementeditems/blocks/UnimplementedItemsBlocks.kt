@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.Material
 import us.timinc.mc.cobblemon.unimplementeditems.UnimplementedItems
 
 object UnimplementedItemsBlocks {
-    val REPEL = Block(FabricBlockSettings.of(Material.STONE).strength(1.5f))
+    val REPEL = Block(FabricBlockSettings.of(Material.STONE).strength(1.5f).requiresTool())
 
     fun register() {
         Registry.register(Registry.BLOCK, UnimplementedItems.myResourceLocation("repel"), REPEL)
