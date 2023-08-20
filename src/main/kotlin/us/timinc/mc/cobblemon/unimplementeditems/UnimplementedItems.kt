@@ -1,5 +1,6 @@
 package us.timinc.mc.cobblemon.unimplementeditems
 
+import dev.architectury.registry.fuel.FuelRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents.Modify
@@ -56,6 +57,8 @@ object UnimplementedItems : ModInitializer {
         Registry.register(Registry.ITEM, myResourceLocation("elixir"), UnimplementedItemsItems.ELIXIR)
         Registry.register(Registry.ITEM, myResourceLocation("ability_patch"), UnimplementedItemsItems.ABILITY_PATCH)
         Registry.register(Registry.ITEM, myResourceLocation("dry_root"), UnimplementedItemsItems.DRY_ROOT)
+
+        FuelRegistry.register(100, UnimplementedItemsItems.DRY_ROOT)
 
         UnimplementedItemsBlocks.register()
     }
