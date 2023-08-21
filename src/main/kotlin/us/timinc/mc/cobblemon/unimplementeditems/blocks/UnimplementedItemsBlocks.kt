@@ -15,6 +15,8 @@ object UnimplementedItemsBlocks {
 
     fun register() {
         Registry.register(Registry.BLOCK, UnimplementedItems.myResourceLocation("repel"), REPEL)
-        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("repel"), BlockItem(REPEL, FabricItemSettings()))
+        Registry.register(
+            Registry.ITEM, UnimplementedItems.myResourceLocation("repel"), BlockItem(REPEL, FabricItemSettings())
+        )
     }
 }
