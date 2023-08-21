@@ -23,5 +23,6 @@
   "item.unimplemented_items.potion_max": "Max Potion",
   "item.unimplemented_items.elixir": "Elixir",
   "item.unimplemented_items.ether": "Ether",
-  "item.unimplemented_items.dry_root": "Dry Root"
+  "item.unimplemented_items.dry_root": "Dry Root",
+  "block.unimplemented_items.repel": "Repel"
 }

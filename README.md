@@ -55,7 +55,11 @@ A patch that allows a Pokémon with a regular Ability to have a rare Ability. Wh
 
 ### Dry Root
 
-A common root found when foraging through grass. While breaking grass, there is a 1 in 10 chance of obtaining a Dry Root. When used on a Pokémon, it resets the EVs for all of that Pokémon’s stats if possible.
+A common root found when foraging through grass. While breaking grass, there is a 1 in 10 chance of obtaining a Dry Root. When used on a Pokémon, it resets the EVs for all of that Pokémon’s stats if possible. Gives the same amount of fuel as a stick.
+
+### Repel Block
+
+Prevents any Pokémon from spawning in a 21x21x21 cubic area around the block. Creative-mode only.
 
 ## Dependencies
 

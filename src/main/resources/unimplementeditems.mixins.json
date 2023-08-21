@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "us.timinc.mc.cobblemon.unimplementeditems.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AreaSpawnerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
