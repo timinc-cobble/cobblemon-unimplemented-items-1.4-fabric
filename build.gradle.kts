@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "us.timinc.mc.cobblemon.unimplementeditems"
-version = "0.7.0"
+version = "1.0.0"
 
 architectury {
     platformSetupLoomIde()
