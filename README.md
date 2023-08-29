@@ -61,6 +61,10 @@ A common root found when foraging through grass. While breaking grass, there is 
 
 Prevents any Pokémon from spawning in a 21x21x21 cubic area around the block. Creative-mode only.
 
+### Power Items
+
+Held items to train your EVs while grinding. Creative-mode only, but I'm open to methods to obtain.
+
 ## Dependencies
 
 Cobblemon [Modrinth](https://modrinth.com/mod/cobblemon) / [CurseForge](https://www.curseforge.com/minecraft/mc-mods/cobblemon)
