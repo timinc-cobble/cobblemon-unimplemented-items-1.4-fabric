@@ -40,6 +40,12 @@ object UnimplementedItemsItems {
     val ETHER = Elixir(10)
     val ABILITY_PATCH = AbilityPatch()
     val DRY_ROOT = DryRoot()
+    val POWER_WEIGHT = PowerEvBooster(Stats.HP, 8)
+    val POWER_BRACER = PowerEvBooster(Stats.ATTACK, 8)
+    val POWER_BELT = PowerEvBooster(Stats.DEFENCE, 8)
+    val POWER_LENS = PowerEvBooster(Stats.SPECIAL_ATTACK, 8)
+    val POWER_BAND = PowerEvBooster(Stats.SPECIAL_DEFENCE, 8)
+    val POWER_ANKLET = PowerEvBooster(Stats.SPEED, 8)
 
     fun register() {
         LootTableEvents.MODIFY.register(LootTableEvents.Modify { _: ResourceManager, _: LootTables, id: ResourceLocation, tableBuilder: LootTable.Builder, source: LootTableSource ->
@@ -106,6 +112,12 @@ object UnimplementedItemsItems {
         Registry.register(
             Registry.ITEM, UnimplementedItems.myResourceLocation("dry_root"), DRY_ROOT
         )
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_weight"), POWER_WEIGHT)
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_bracer"), POWER_BRACER)
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_belt"), POWER_BELT)
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_lens"), POWER_LENS)
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_band"), POWER_BAND)
+        Registry.register(Registry.ITEM, UnimplementedItems.myResourceLocation("power_anklet"), POWER_ANKLET)
 
         FuelRegistry.register(100, DRY_ROOT)
     }
