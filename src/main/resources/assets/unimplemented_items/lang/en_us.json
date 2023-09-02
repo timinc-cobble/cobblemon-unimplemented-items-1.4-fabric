@@ -24,5 +24,11 @@
   "item.unimplemented_items.elixir": "Elixir",
   "item.unimplemented_items.ether": "Ether",
   "item.unimplemented_items.dry_root": "Dry Root",
+  "item.unimplemented_items.power_belt": "Power Belt",
+  "item.unimplemented_items.power_anklet": "Power Anklet",
+  "item.unimplemented_items.power_band": "Power Band",
+  "item.unimplemented_items.power_bracer": "Power Bracer",
+  "item.unimplemented_items.power_lens": "Power Lens",
+  "item.unimplemented_items.power_weight": "Power Weight",
   "block.unimplemented_items.repel": "Repel"
 }
