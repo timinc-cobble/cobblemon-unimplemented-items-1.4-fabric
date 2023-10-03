@@ -32,6 +32,7 @@ class DryRoot : PokemonItem(
             return InteractionResult.FAIL
         }
 
+        itemStack.count--
         return InteractionResult.SUCCESS
     }
 }
