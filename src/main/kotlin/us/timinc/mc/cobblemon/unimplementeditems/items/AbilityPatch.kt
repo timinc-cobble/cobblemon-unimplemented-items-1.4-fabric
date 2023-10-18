@@ -2,36 +2,34 @@ package us.timinc.mc.cobblemon.unimplementeditems.items
 
 import com.cobblemon.mod.common.api.Priority
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import com.cobblemon.mod.common.item.CobblemonItemGroups
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
-import net.minecraft.network.chat.Component
-import net.minecraft.world.InteractionResult
-import net.minecraft.world.entity.player.Player
-import net.minecraft.world.item.ItemStack
+import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.item.ItemStack
+import net.minecraft.text.Text
+import net.minecraft.util.ActionResult
 import us.timinc.mc.cobblemon.unimplementeditems.ErrorMessages
 
 class AbilityPatch : PokemonItem(
     FabricItemSettings()
-        .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)
         .maxCount(16)
 ) {
     override fun processInteraction(
         itemStack: ItemStack,
-        player: Player,
+        player: PlayerEntity,
         target: PokemonEntity,
         pokemon: Pokemon
-    ): InteractionResult {
+    ): ActionResult {
         if (pokemon.ability.priority == Priority.LOW) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.alreadyHasHiddenAbility))
-            return InteractionResult.FAIL
+            player.sendMessage(Text.translatable(ErrorMessages.alreadyHasHiddenAbility))
+            return ActionResult.FAIL
         }
 
         val tForm = pokemon.form
         val potentialAbilityMapping = tForm.abilities.mapping[Priority.LOW]
         if (potentialAbilityMapping == null) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.noHiddenAbility))
-            return InteractionResult.FAIL
+            player.sendMessage(Text.translatable(ErrorMessages.noHiddenAbility))
+            return ActionResult.FAIL
         }
 
         val potentialAbility = potentialAbilityMapping[0]
@@ -42,6 +40,6 @@ class AbilityPatch : PokemonItem(
         pokemon.ability = newAbility
 
         itemStack.count--
-        return InteractionResult.SUCCESS
+        return ActionResult.SUCCESS
     }
 }

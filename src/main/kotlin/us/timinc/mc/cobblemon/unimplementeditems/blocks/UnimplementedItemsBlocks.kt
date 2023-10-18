@@ -4,19 +4,20 @@ package us.timinc.mc.cobblemon.unimplementeditems.blocks
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
-import net.minecraft.core.Registry
-import net.minecraft.world.item.BlockItem
-import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.material.Material
+import net.minecraft.block.Block
+import net.minecraft.block.Blocks
+import net.minecraft.item.BlockItem
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 import us.timinc.mc.cobblemon.unimplementeditems.UnimplementedItems
 
 object UnimplementedItemsBlocks {
-    val REPEL = Block(FabricBlockSettings.of(Material.STONE).strength(1.5f).requiresTool())
+    val REPEL = Block(FabricBlockSettings.copyOf(Blocks.STONE))
 
     fun register() {
-        Registry.register(Registry.BLOCK, UnimplementedItems.myResourceLocation("repel"), REPEL)
+        Registry.register(Registries.BLOCK, UnimplementedItems.myResourceLocation("repel"), REPEL)
         Registry.register(
-            Registry.ITEM, UnimplementedItems.myResourceLocation("repel"), BlockItem(REPEL, FabricItemSettings())
+            Registries.ITEM, UnimplementedItems.myResourceLocation("repel"), BlockItem(REPEL, FabricItemSettings())
         )
     }
 }

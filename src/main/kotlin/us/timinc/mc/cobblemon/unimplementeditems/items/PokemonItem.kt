@@ -3,30 +3,30 @@ package us.timinc.mc.cobblemon.unimplementeditems.items
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
-import net.minecraft.network.chat.Component
-import net.minecraft.world.InteractionHand
-import net.minecraft.world.InteractionResult
-import net.minecraft.world.entity.LivingEntity
-import net.minecraft.world.entity.player.Player
-import net.minecraft.world.item.Item
-import net.minecraft.world.item.ItemStack
+import net.minecraft.entity.LivingEntity
+import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
+import net.minecraft.text.Text
+import net.minecraft.util.ActionResult
+import net.minecraft.util.Hand
 import us.timinc.mc.cobblemon.unimplementeditems.ErrorMessages
 import us.timinc.mc.cobblemon.unimplementeditems.util.Ownership
 
 abstract class PokemonItem(settings: FabricItemSettings) : Item(settings) {
-    override fun interactLivingEntity(
+    override fun useOnEntity(
         itemStack: ItemStack,
-        player: Player,
+        player: PlayerEntity,
         target: LivingEntity,
-        interactionHand: InteractionHand
-    ): InteractionResult {
-        if (player.level.isClientSide) {
-            return InteractionResult.PASS
+        hand: Hand
+    ): ActionResult  {
+        if (player.world.isClient) {
+            return ActionResult.PASS
         }
 
         if (target !is PokemonEntity) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.notPokemon))
-            return InteractionResult.FAIL
+            player.sendMessage(Text.translatable(ErrorMessages.notPokemon))
+            return ActionResult.FAIL
         }
 
         val pokemon = target.pokemon
@@ -37,8 +37,8 @@ abstract class PokemonItem(settings: FabricItemSettings) : Item(settings) {
             else -> Ownership.OWNED_ANOTHER
         }
         if (ownership != Ownership.OWNER) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.notYourPokemon))
-            return InteractionResult.FAIL
+            player.sendMessage(Text.translatable(ErrorMessages.notYourPokemon))
+            return ActionResult.FAIL
         }
 
         return this.processInteraction(itemStack, player, target, target.pokemon)
@@ -46,8 +46,8 @@ abstract class PokemonItem(settings: FabricItemSettings) : Item(settings) {
 
     abstract fun processInteraction(
         itemStack: ItemStack,
-        player: Player,
+        player: PlayerEntity,
         target: PokemonEntity,
         pokemon: Pokemon
-    ): InteractionResult
+    ): ActionResult
 }

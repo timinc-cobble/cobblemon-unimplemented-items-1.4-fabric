@@ -1,23 +1,12 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    "#B#",
-    "BPB"
-  ],
-  "key": {
-    "#": {
-      "item": "minecraft:glow_berries"
-    },
-    "B": {
-      "item": "minecraft:bone_meal"
-    },
-    "P": {
-      "item": "minecraft:paper"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unimplemented_items:elixir"
     }
-  },
+  ],
   "result": {
-    "item": "unimplemented_items:elixir",
+    "item": "cobblemon:elixir",
     "count": 1
   }
 }
