@@ -41,7 +41,7 @@ object UnimplementedItemsItems {
     val ELIXIR = Item(FabricItemSettings())
     val ETHER = Item(FabricItemSettings())
     val ABILITY_PATCH = AbilityPatch()
-    val DRY_ROOT = Item(FabricItemSettings())
+    val DRY_ROOT = DryRoot()
     val POWER_WEIGHT = Item(FabricItemSettings())
     val POWER_BRACER = Item(FabricItemSettings())
     val POWER_BELT = Item(FabricItemSettings())
@@ -59,6 +59,12 @@ object UnimplementedItemsItems {
                         .with(ItemEntry.builder(Items.AIR).weight(88).build())
 
                 tableBuilder.pool(unimplementedItemsPool)
+            }
+
+            if (source.isBuiltin && id == Blocks.GRASS.lootTableId) {
+                val dryRootPool = LootPool.Builder().with(ItemEntry.builder(DRY_ROOT).weight(1).build())
+                    .with(ItemEntry.builder(Items.AIR).weight(9).build())
+                tableBuilder.pool(dryRootPool)
             }
         })
 

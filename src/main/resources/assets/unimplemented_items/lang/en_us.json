@@ -6,6 +6,7 @@
   "unimplemented_items.errors.alreadyPerfectIvs": "That Pokemon already has perfect IVs.",
   "unimplemented_items.errors.noHiddenAbility": "That Pokemon species does not have a hidden ability.",
   "unimplemented_items.errors.alreadyHasHiddenAbility": "That pokemon already has its hidden ability.",
+  "unimplemented_items.errors.alreadyHasZeroEvs": "That Pokemon has no effort to take away.",
   "item.unimplemented_items.ability_capsule": "Ability Capsule",
   "item.unimplemented_items.ability_patch": "Ability Patch",
   "item.unimplemented_items.bottle_cap_hp": "Bottle Cap (HP)",
