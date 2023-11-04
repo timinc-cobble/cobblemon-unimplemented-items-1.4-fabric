@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cobblemon_unimplementeditems",
-  "version": "1.4-1.0.1",
+  "version": "1.4-fabric-1.0.1",
   "name": "Cobblemon Unimplemented Items",
   "description": "Adds items that don't exist in Cobblemon yet",
   "authors": [
