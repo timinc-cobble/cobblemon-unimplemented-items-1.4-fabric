@@ -1,19 +1,12 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    "#P#"
-  ],
-  "key": {
-    "#": {
-      "item": "minecraft:bone_meal"
-    },
-    "P": {
-      "item": "minecraft:paper"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unimplemented_items:ether"
     }
-  },
+  ],
   "result": {
-    "item": "unimplemented_items:ether",
+    "item": "cobblemon:ether",
     "count": 1
   }
 }

@@ -1,8 +1,10 @@
 package us.timinc.mc.cobblemon.unimplementeditems
 
 import com.cobblemon.mod.common.api.events.CobblemonEvents
+import com.cobblemon.mod.common.item.group.CobblemonItemGroups
 import net.fabricmc.api.ModInitializer
-import net.minecraft.resources.ResourceLocation
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.minecraft.util.Identifier
 import us.timinc.mc.cobblemon.unimplementeditems.blocks.UnimplementedItemsBlocks
 import us.timinc.mc.cobblemon.unimplementeditems.items.PostBattleItem
 import us.timinc.mc.cobblemon.unimplementeditems.items.UnimplementedItemsItems
@@ -21,15 +23,13 @@ object UnimplementedItems : ModInitializer {
                 val heldItemStack = pokemon.heldItem()
                 val heldItem = heldItemStack.item
                 if (heldItem is PostBattleItem) {
-                    println(heldItemStack.displayName.string)
                     heldItem.doPostBattle(heldItemStack, pokemon, event)
                 }
             }
         }
     }
 
-    @Suppress("MemberVisibilityCanBePrivate")
-    fun myResourceLocation(str: String): ResourceLocation {
-        return ResourceLocation(MOD_ID, str)
+    fun myResourceLocation(str: String): Identifier {
+        return Identifier(MOD_ID, str)
     }
 }

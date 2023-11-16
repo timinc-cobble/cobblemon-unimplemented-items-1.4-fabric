@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "unimplemented_items:potion_hyper"
+      "item": "unimplemented_items:power_anklet"
     }
   ],
   "result": {
-    "item": "cobblemon:hyper_potion",
+    "item": "cobblemon:power_anklet",
     "count": 1
   }
 }

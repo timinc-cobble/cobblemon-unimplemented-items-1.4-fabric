@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "minecraft:glass_bottle"
+      "item": "unimplemented_items:potion"
     }
   ],
   "result": {
-    "item": "unimplemented_items:potion",
+    "item": "cobblemon:potion",
     "count": 1
   }
 }

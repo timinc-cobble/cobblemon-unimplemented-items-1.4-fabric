@@ -1,24 +1,22 @@
 package us.timinc.mc.cobblemon.unimplementeditems.items
 
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import com.cobblemon.mod.common.item.CobblemonItemGroups
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
-import net.minecraft.network.chat.Component
-import net.minecraft.world.InteractionResult
-import net.minecraft.world.entity.player.Player
-import net.minecraft.world.item.ItemStack
+import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.item.ItemStack
+import net.minecraft.text.Text
+import net.minecraft.util.ActionResult
 import us.timinc.mc.cobblemon.unimplementeditems.ErrorMessages
 
 class DryRoot : PokemonItem(
-    FabricItemSettings()
-    .group(CobblemonItemGroups.MEDICINE_ITEM_GROUP)) {
+    FabricItemSettings()) {
     override fun processInteraction(
         itemStack: ItemStack,
-        player: Player,
+        player: PlayerEntity,
         target: PokemonEntity,
         pokemon: Pokemon
-    ): InteractionResult {
+    ): ActionResult {
         var changedOne = false
         pokemon.evs.forEach{entry ->
             if (entry.value > .0) {
@@ -28,11 +26,11 @@ class DryRoot : PokemonItem(
         }
 
         if (!changedOne) {
-            player.sendSystemMessage(Component.translatable(ErrorMessages.alreadyHasZeroEvs))
-            return InteractionResult.FAIL
+            player.sendMessage(Text.translatable(ErrorMessages.alreadyHasZeroEvs))
+            return ActionResult.FAIL
         }
 
         itemStack.count--
-        return InteractionResult.SUCCESS
+        return ActionResult.SUCCESS
     }
 }
