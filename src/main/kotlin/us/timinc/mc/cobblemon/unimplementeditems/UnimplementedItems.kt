@@ -1,16 +1,16 @@
 package us.timinc.mc.cobblemon.unimplementeditems
 
 import com.cobblemon.mod.common.api.events.CobblemonEvents
-import com.cobblemon.mod.common.item.group.CobblemonItemGroups
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.util.Identifier
 import us.timinc.mc.cobblemon.unimplementeditems.blocks.UnimplementedItemsBlocks
+import us.timinc.mc.cobblemon.unimplementeditems.config.BaseConfig
 import us.timinc.mc.cobblemon.unimplementeditems.items.PostBattleItem
 import us.timinc.mc.cobblemon.unimplementeditems.items.UnimplementedItemsItems
 
 object UnimplementedItems : ModInitializer {
     const val MOD_ID = "unimplemented_items"
+    var config: BaseConfig = BaseConfig.Builder.load()
 
     override fun onInitialize() {
         UnimplementedItemsItems.register()
