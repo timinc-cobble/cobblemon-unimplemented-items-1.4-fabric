@@ -17,29 +17,35 @@ class AbilityPatch : PokemonItem(
     override fun processInteraction(
         itemStack: ItemStack, player: PlayerEntity, target: PokemonEntity, pokemon: Pokemon
     ): ActionResult {
+        // Pre-Gen9, if you already had your hidden, it had no effect.
         val preGen9 = !UnimplementedItems.config.abilityPatchGen9;
 
+        // It has its hidden if the priority is Low.
         val hasHidden = pokemon.ability.priority == Priority.LOW
+        // If we already have our hidden and we're pre-gen9, get out.
         if (hasHidden && preGen9) {
             player.sendMessage(Text.translatable(ErrorMessages.alreadyHasHiddenAbility))
             return ActionResult.FAIL
         }
 
         val tForm = pokemon.form
-        val potentialAbilityMapping = tForm.abilities.mapping[Priority.LOW]
-        if (potentialAbilityMapping == null) {
+        // If we don't have our hidden, check to make sure there is a hidden.
+        if (!hasHidden && tForm.abilities.mapping[Priority.LOW] == null) {
             player.sendMessage(Text.translatable(ErrorMessages.noHiddenAbility))
             return ActionResult.FAIL
         }
 
-        val targetAbilityMapping = tForm.abilities.mapping[if (hasHidden) Priority.LOWEST else Priority.LOW]
+        // Get the new ability.
+        val priority = if (hasHidden) Priority.LOWEST else Priority.LOW
+        val targetAbilityMapping = tForm.abilities.mapping[priority]
         val potentialAbility = targetAbilityMapping?.get(0) ?: return ActionResult.FAIL
         val newAbilityBuilder = potentialAbility.template.builder
         val newAbility = newAbilityBuilder.invoke(potentialAbility.template, false)
         newAbility.index = 0
-        newAbility.priority = Priority.LOW
+        newAbility.priority = priority
         pokemon.ability = newAbility
 
+        // Consume and succeed.
         itemStack.count--
         return ActionResult.SUCCESS
     }
