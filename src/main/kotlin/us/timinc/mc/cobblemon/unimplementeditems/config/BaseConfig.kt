@@ -1,6 +1,9 @@
 package us.timinc.mc.cobblemon.unimplementeditems.config
 
 import com.google.gson.GsonBuilder
+import net.minecraft.block.Blocks
+import net.minecraft.loot.LootTables
+import net.minecraft.util.Identifier
 import us.timinc.mc.cobblemon.unimplementeditems.UnimplementedItems
 import java.io.File
 import java.io.FileReader
@@ -8,6 +11,10 @@ import java.io.PrintWriter
 
 class BaseConfig {
     val abilityPatchGen9: Boolean = true
+    val lootPoolOverrides: List<Identifier> = listOf(
+        LootTables.FISHING_TREASURE_GAMEPLAY,
+        Blocks.GRASS.lootTableId
+    )
 
     class Builder {
         companion object {

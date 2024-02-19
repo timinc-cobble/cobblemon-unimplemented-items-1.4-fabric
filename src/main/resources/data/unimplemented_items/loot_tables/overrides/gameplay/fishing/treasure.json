@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:air",
+          "weight": 88
+        },
+        {
+          "type": "minecraft:item",
+          "name": "unimplemented_items:bottle_cap",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "unimplemented_items:bottle_cap_gold",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "unimplemented_items:ability_patch",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

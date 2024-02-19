@@ -10,20 +10,15 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents
 import net.fabricmc.fabric.api.loot.v2.LootTableSource
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry
 import net.fabricmc.fabric.api.registry.FuelRegistry
-import net.minecraft.block.Blocks
 import net.minecraft.item.Item
-import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemGroups
-import net.minecraft.item.Items
 import net.minecraft.loot.LootManager
-import net.minecraft.loot.LootPool
 import net.minecraft.loot.LootTable
-import net.minecraft.loot.LootTables
-import net.minecraft.loot.entry.ItemEntry
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Identifier
+import us.timinc.mc.cobblemon.unimplementeditems.Loot
 import us.timinc.mc.cobblemon.unimplementeditems.UnimplementedItems
 
 object UnimplementedItemsItems {
@@ -52,21 +47,7 @@ object UnimplementedItemsItems {
 
     fun register() {
         LootTableEvents.MODIFY.register(LootTableEvents.Modify { resourceManager: ResourceManager, lootManager: LootManager, id: Identifier, tableBuilder: LootTable.Builder, source: LootTableSource ->
-            if (source.isBuiltin && id == LootTables.FISHING_TREASURE_GAMEPLAY) {
-                val unimplementedItemsPool =
-                    LootPool.Builder().with(ItemEntry.builder(BOTTLE_CAP).weight(10).build())
-                        .with(ItemEntry.builder(BOTTLE_CAP_GOLD).weight(1).build())
-                        .with(ItemEntry.builder(ABILITY_PATCH).weight(1).build())
-                        .with(ItemEntry.builder(Items.AIR).weight(88).build())
-
-                tableBuilder.pool(unimplementedItemsPool)
-            }
-
-            if (source.isBuiltin && id == Blocks.GRASS.lootTableId) {
-                val dryRootPool = LootPool.Builder().with(ItemEntry.builder(DRY_ROOT).weight(1).build())
-                    .with(ItemEntry.builder(Items.AIR).weight(9).build())
-                tableBuilder.pool(dryRootPool)
-            }
+            Loot.register(source, id, tableBuilder)
         })
 
         ItemGroupEvents.modifyEntriesEvent(CobblemonItemGroups.CONSUMABLES_KEY).register { content ->
