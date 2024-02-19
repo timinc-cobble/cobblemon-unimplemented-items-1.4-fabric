@@ -1,10 +1,8 @@
 package us.timinc.mc.cobblemon.unimplementeditems
 
 import net.fabricmc.fabric.api.loot.v2.LootTableSource
-import net.minecraft.block.Blocks
 import net.minecraft.loot.LootPool
 import net.minecraft.loot.LootTable
-import net.minecraft.loot.LootTables
 import net.minecraft.loot.entry.LootTableEntry
 import net.minecraft.util.Identifier
 
